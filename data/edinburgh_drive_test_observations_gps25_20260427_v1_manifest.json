@@ -1,0 +1,58 @@
+{
+  "dataset": "edinburgh_drive_test_observations",
+  "version": "v1",
+  "last_pass_date": "2026-04-27",
+  "stem": "edinburgh_drive_test_observations_gps25_20260427_v1",
+  "description": "Curated LTE drive-test observations filtered to the Edinburgh dataset bounding box.",
+  "dataset_bounding_box": {
+    "min_latitude": 55.89,
+    "max_latitude": 56.0,
+    "min_longitude": -3.43,
+    "max_longitude": -3.15
+  },
+  "coordinate_reference_system": "WGS 84 latitude/longitude decimal degrees (EPSG:4326)",
+  "filters": {
+    "max_gps_accuracy_m": 25.0,
+    "overlap_exclusion": true,
+    "has_omitted_areas": true
+  },
+  "generated_by": {
+    "pipeline": "curate_and_view_observations.py",
+    "command_stem": "edinburgh_drive_test_observations_gps25_20260427_v1"
+  },
+  "files": [
+    {
+      "path": "edinburgh_drive_test_observations_gps25_20260427_v1.csv",
+      "description": "Curated LTE observation records.",
+      "format": "CSV",
+      "schema": "edinburgh_drive_test_observations_gps25_20260427_v1_schema.md"
+    },
+    {
+      "path": "edinburgh_drive_test_observations_gps25_20260427_v1_parse_log.csv",
+      "description": "Per-source parse and curation summary.",
+      "format": "CSV",
+      "schema": "edinburgh_drive_test_observations_gps25_20260427_v1_parse_log_schema.md"
+    },
+    {
+      "path": "edinburgh_drive_test_observations_gps25_20260427_v1_viewer.html",
+      "description": "Standalone interactive observation viewer.",
+      "format": "HTML"
+    },
+    {
+      "path": "edinburgh_drive_test_observations_gps25_20260427_v1_cell_sites/cell_site_estimates.csv",
+      "description": "Estimated LTE cell-site locations derived from the curated observations.",
+      "format": "CSV",
+      "schema": "edinburgh_drive_test_observations_gps25_20260427_v1_cell_sites/cell_site_estimates_schema.md"
+    },
+    {
+      "path": "edinburgh_drive_test_observations_gps25_20260427_v1_cell_sites/cell_site_estimates.geojson",
+      "description": "Cell-site estimates encoded as GeoJSON points.",
+      "format": "GeoJSON"
+    },
+    {
+      "path": "edinburgh_drive_test_observations_gps25_20260427_v1_cell_sites/cell_site_estimates_map.html",
+      "description": "Standalone interactive map of estimated LTE cell-site locations.",
+      "format": "HTML"
+    }
+  ]
+}
