@@ -1,3 +1,5 @@
+![Edinburgh Dataset](DataSet_Edinburgh.png)
+
 # Cellular Mobility & Positioning Research Dataset
 
 An anonymised cellular drive-test dataset for research into GNSS-independent
