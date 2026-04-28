@@ -1,0 +1,3 @@
+file,status,raw_obs,clean_obs,gps_accuracy_obs,curated_obs,lat_min,lat_max,lon_min,lon_max,n_cgis,overlap_excluded_obs,curated_after_overlap_obs
+files_all_20260428/cellscan_20260428_171037.csv,ok,5013,5013,5000,4389,55.936432,55.974907,-3.429954,-3.195137,68.0,0,4389
+files_all_20260428/cellscan_20260428_184800.csv,no_bbox_match,18,18,18,0,,,,,,0,0
