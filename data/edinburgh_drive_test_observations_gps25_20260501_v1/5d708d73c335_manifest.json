@@ -1,0 +1,68 @@
+{
+  "dataset": "edinburgh_drive_test_observations",
+  "version": null,
+  "last_pass_date": null,
+  "stem": "5d708d73c335",
+  "description": "Curated LTE drive-test observations filtered to the Edinburgh dataset bounding box.",
+  "dataset_bounding_box": {
+    "min_latitude": 55.89,
+    "max_latitude": 56.0,
+    "min_longitude": -3.43,
+    "max_longitude": -3.15
+  },
+  "coordinate_reference_system": "WGS 84 latitude/longitude decimal degrees (EPSG:4326)",
+  "filters": {
+    "max_gps_accuracy_m": 25.0,
+    "overlap_exclusion": true,
+    "has_omitted_areas": true
+  },
+  "generated_by": {
+    "pipeline": "curate_and_view_observations.py",
+    "command_stem": "5d708d73c335"
+  },
+  "files": [
+    {
+      "path": "5d708d73c335.csv",
+      "description": "Curated LTE observation records.",
+      "format": "CSV",
+      "schema": "5d708d73c335_schema.md"
+    },
+    {
+      "path": "5d708d73c335_parse_log.csv",
+      "description": "Per-source parse and curation summary.",
+      "format": "CSV",
+      "schema": "5d708d73c335_parse_log_schema.md"
+    },
+    {
+      "path": "5d708d73c335_viewer.html",
+      "description": "Standalone interactive observation viewer.",
+      "format": "HTML"
+    },
+    {
+      "path": "5d708d73c335_cell_sites/cell_site_estimates.csv",
+      "description": "Estimated LTE cell-site locations derived from the curated observations.",
+      "format": "CSV",
+      "schema": "5d708d73c335_cell_sites/cell_site_estimates_schema.md"
+    },
+    {
+      "path": "5d708d73c335_cell_sites/cell_site_estimates.geojson",
+      "description": "Cell-site estimates encoded as GeoJSON points.",
+      "format": "GeoJSON"
+    },
+    {
+      "path": "5d708d73c335_cell_sites/cell_site_estimates_map.html",
+      "description": "Standalone interactive map of estimated LTE cell-site locations.",
+      "format": "HTML"
+    },
+    {
+      "path": "5d708d73c335_cell_sites/cell_site_comparison.csv",
+      "description": "Comparison between estimated LTE cell-site locations and supplied known eNodeB coordinates.",
+      "format": "CSV"
+    },
+    {
+      "path": "pass_viewer_map.png",
+      "description": "PNG snapshot of the pass observation viewer without a map background.",
+      "format": "PNG"
+    }
+  ]
+}
