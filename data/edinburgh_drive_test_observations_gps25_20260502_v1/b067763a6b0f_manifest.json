@@ -71,7 +71,7 @@
     },
     {
       "path": "b067763a6b0f_road_coverage_uncovered_roads.geojson",
-      "description": "OpenStreetMap roads estimated as having no drive-test observation coverage.",
+      "description": "OpenStreetMap road segments remaining after covered spans are removed.",
       "format": "GeoJSON"
     },
     {
