@@ -1,4 +1,4 @@
-![Edinburgh Dataset](DataSet_Edinburgh.png)
+![Edinburgh Dataset]([DataSet_Edinburgh.png](data/edinburgh_drive_test_observations_gps25_20260501_v1/pass_viewer_map.png))
 
 # Cellular Mobility & Positioning Research Dataset
 
