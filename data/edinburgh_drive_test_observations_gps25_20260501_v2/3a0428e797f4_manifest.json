@@ -1,0 +1,155 @@
+{
+  "dataset": "edinburgh_drive_test_observations",
+  "version": null,
+  "last_pass_date": null,
+  "stem": "3a0428e797f4",
+  "description": "Curated LTE drive-test observations filtered to the Edinburgh dataset bounding box.",
+  "dataset_bounding_box": {
+    "min_latitude": 55.89,
+    "max_latitude": 56.0,
+    "min_longitude": -3.43,
+    "max_longitude": -3.15
+  },
+  "coordinate_reference_system": "WGS 84 latitude/longitude decimal degrees (EPSG:4326)",
+  "filters": {
+    "max_gps_accuracy_m": 25.0,
+    "overlap_exclusion": true,
+    "has_omitted_areas": true
+  },
+  "generated_by": {
+    "pipeline": "curate_and_view_observations.py",
+    "command_stem": "3a0428e797f4"
+  },
+  "files": [
+    {
+      "path": "3a0428e797f4.csv",
+      "description": "Curated LTE observation records.",
+      "format": "CSV",
+      "schema": "3a0428e797f4_schema.md"
+    },
+    {
+      "path": "3a0428e797f4_parse_log.csv",
+      "description": "Per-source parse and curation summary.",
+      "format": "CSV",
+      "schema": "3a0428e797f4_parse_log_schema.md"
+    },
+    {
+      "path": "3a0428e797f4_viewer.html",
+      "description": "Standalone interactive observation viewer.",
+      "format": "HTML"
+    },
+    {
+      "path": "3a0428e797f4_cell_sites/cell_site_estimates.csv",
+      "description": "Estimated LTE cell-site locations derived from the curated observations.",
+      "format": "CSV",
+      "schema": "3a0428e797f4_cell_sites/cell_site_estimates_schema.md"
+    },
+    {
+      "path": "3a0428e797f4_cell_sites/cell_site_estimates.geojson",
+      "description": "Cell-site estimates encoded as GeoJSON points.",
+      "format": "GeoJSON"
+    },
+    {
+      "path": "3a0428e797f4_cell_sites/cell_site_estimates_map.html",
+      "description": "Standalone interactive map of estimated LTE cell-site locations.",
+      "format": "HTML"
+    },
+    {
+      "path": "3a0428e797f4_cell_sites/cell_site_comparison.csv",
+      "description": "Comparison between estimated LTE cell-site locations and supplied known eNodeB coordinates.",
+      "format": "CSV"
+    },
+    {
+      "path": "3a0428e797f4_road_coverage_by_class.csv",
+      "description": "Road-length coverage by OpenStreetMap highway class.",
+      "format": "CSV"
+    },
+    {
+      "path": "3a0428e797f4_road_coverage_roads.geojson",
+      "description": "OpenStreetMap road geometries with estimated drive-test coverage metrics.",
+      "format": "GeoJSON"
+    },
+    {
+      "path": "3a0428e797f4_road_coverage_summary.json",
+      "description": "Road coverage analysis parameters and class-level summary.",
+      "format": "JSON"
+    },
+    {
+      "path": "pass_viewer_map.png",
+      "description": "PNG snapshot of the pass observation viewer without a map background.",
+      "format": "PNG"
+    }
+  ],
+  "road_coverage": {
+    "living_street": {
+      "total_road_length_m": 2099.41,
+      "covered_road_length_m": 23.91,
+      "coverage_pct": 1.14
+    },
+    "motorway": {
+      "total_road_length_m": 35439.06,
+      "covered_road_length_m": 33374.58,
+      "coverage_pct": 94.17
+    },
+    "motorway_link": {
+      "total_road_length_m": 15774.93,
+      "covered_road_length_m": 14996.76,
+      "coverage_pct": 95.07
+    },
+    "primary": {
+      "total_road_length_m": 121132.34,
+      "covered_road_length_m": 98279.98,
+      "coverage_pct": 81.13
+    },
+    "primary_link": {
+      "total_road_length_m": 10747.96,
+      "covered_road_length_m": 7744.76,
+      "coverage_pct": 72.06
+    },
+    "residential": {
+      "total_road_length_m": 819327.11,
+      "covered_road_length_m": 65168.56,
+      "coverage_pct": 7.95
+    },
+    "secondary": {
+      "total_road_length_m": 49965.17,
+      "covered_road_length_m": 40625.39,
+      "coverage_pct": 81.31
+    },
+    "secondary_link": {
+      "total_road_length_m": 153.09,
+      "covered_road_length_m": 153.09,
+      "coverage_pct": 100.0
+    },
+    "service": {
+      "total_road_length_m": 715402.98,
+      "covered_road_length_m": 56521.67,
+      "coverage_pct": 7.9
+    },
+    "tertiary": {
+      "total_road_length_m": 200217.58,
+      "covered_road_length_m": 111228.71,
+      "coverage_pct": 55.55
+    },
+    "tertiary_link": {
+      "total_road_length_m": 867.99,
+      "covered_road_length_m": 736.88,
+      "coverage_pct": 84.9
+    },
+    "trunk": {
+      "total_road_length_m": 31403.16,
+      "covered_road_length_m": 27040.45,
+      "coverage_pct": 86.11
+    },
+    "trunk_link": {
+      "total_road_length_m": 11433.94,
+      "covered_road_length_m": 8501.64,
+      "coverage_pct": 74.35
+    },
+    "unclassified": {
+      "total_road_length_m": 108404.74,
+      "covered_road_length_m": 16073.72,
+      "coverage_pct": 14.83
+    }
+  }
+}

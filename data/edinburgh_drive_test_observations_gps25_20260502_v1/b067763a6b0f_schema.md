@@ -42,5 +42,9 @@ use WGS 84 decimal degrees; west longitudes are negative.
 
 ## Notes
 
-Blank fields indicate unavailable or unparsed source values. The public dataset
-uses the filters recorded in the manifest.
+Blank fields indicate unavailable or unparsed source values. Android telephony
+`Integer.MAX_VALUE` sentinels (`2147483647`) are normalized to blank before
+analysis and export. Rows sharing a timestamp are treated as one Android
+`TelephonyManager.allCellInfo` batch; the LTE observation is selected from the
+batch by cell identity, RAT and available signal fields, not by source row order.
+The public dataset uses the filters recorded in the manifest.

@@ -83,38 +83,38 @@
   "road_coverage": {
     "living_street": {
       "total_road_length_m": 2099.41,
-      "covered_road_length_m": 23.91,
-      "coverage_pct": 1.14
+      "covered_road_length_m": 20.11,
+      "coverage_pct": 0.96
     },
     "motorway": {
       "total_road_length_m": 35439.06,
-      "covered_road_length_m": 33414.4,
-      "coverage_pct": 94.29
+      "covered_road_length_m": 33289.6,
+      "coverage_pct": 93.93
     },
     "motorway_link": {
       "total_road_length_m": 15774.93,
-      "covered_road_length_m": 15004.43,
-      "coverage_pct": 95.12
+      "covered_road_length_m": 15015.52,
+      "coverage_pct": 95.19
     },
     "primary": {
       "total_road_length_m": 121132.34,
-      "covered_road_length_m": 98274.38,
-      "coverage_pct": 81.13
+      "covered_road_length_m": 107521.53,
+      "coverage_pct": 88.76
     },
     "primary_link": {
       "total_road_length_m": 10747.96,
-      "covered_road_length_m": 7744.3,
-      "coverage_pct": 72.05
+      "covered_road_length_m": 7756.23,
+      "coverage_pct": 72.16
     },
     "residential": {
-      "total_road_length_m": 819327.11,
-      "covered_road_length_m": 65154.78,
-      "coverage_pct": 7.95
+      "total_road_length_m": 819327.08,
+      "covered_road_length_m": 77121.11,
+      "coverage_pct": 9.41
     },
     "secondary": {
       "total_road_length_m": 49965.17,
-      "covered_road_length_m": 40625.39,
-      "coverage_pct": 81.31
+      "covered_road_length_m": 45644.64,
+      "coverage_pct": 91.35
     },
     "secondary_link": {
       "total_road_length_m": 153.09,
@@ -122,19 +122,19 @@
       "coverage_pct": 100.0
     },
     "service": {
-      "total_road_length_m": 715402.98,
-      "covered_road_length_m": 56483.29,
-      "coverage_pct": 7.9
+      "total_road_length_m": 715404.29,
+      "covered_road_length_m": 64349.79,
+      "coverage_pct": 8.99
     },
     "tertiary": {
-      "total_road_length_m": 200217.58,
-      "covered_road_length_m": 111227.09,
-      "coverage_pct": 55.55
+      "total_road_length_m": 200217.51,
+      "covered_road_length_m": 120186.79,
+      "coverage_pct": 60.03
     },
     "tertiary_link": {
       "total_road_length_m": 867.99,
-      "covered_road_length_m": 736.88,
-      "coverage_pct": 84.9
+      "covered_road_length_m": 762.9,
+      "coverage_pct": 87.89
     },
     "trunk": {
       "total_road_length_m": 31403.16,
@@ -143,13 +143,13 @@
     },
     "trunk_link": {
       "total_road_length_m": 11433.94,
-      "covered_road_length_m": 8607.7,
-      "coverage_pct": 75.28
+      "covered_road_length_m": 8560.79,
+      "coverage_pct": 74.87
     },
     "unclassified": {
       "total_road_length_m": 108404.74,
-      "covered_road_length_m": 16076.05,
-      "coverage_pct": 14.83
+      "covered_road_length_m": 18815.14,
+      "coverage_pct": 17.36
     }
   }
 }
