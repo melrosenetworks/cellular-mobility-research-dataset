@@ -1,0 +1,175 @@
+{
+  "dataset": "edinburgh_drive_test_observations",
+  "version": null,
+  "last_pass_date": null,
+  "stem": "31e30acc43f2",
+  "description": "Curated LTE drive-test observations filtered to the Edinburgh dataset bounding box.",
+  "dataset_bounding_box": {
+    "min_latitude": 55.89,
+    "max_latitude": 56.0,
+    "min_longitude": -3.43,
+    "max_longitude": -3.15
+  },
+  "coordinate_reference_system": "WGS 84 latitude/longitude decimal degrees (EPSG:4326)",
+  "filters": {
+    "max_gps_accuracy_m": 25.0,
+    "overlap_exclusion": true,
+    "has_omitted_areas": true
+  },
+  "generated_by": {
+    "pipeline": "curate_and_view_observations.py",
+    "command_stem": "31e30acc43f2"
+  },
+  "files": [
+    {
+      "path": "31e30acc43f2.csv",
+      "description": "Curated LTE observation records.",
+      "format": "CSV",
+      "schema": "31e30acc43f2_schema.md"
+    },
+    {
+      "path": "31e30acc43f2_parse_log.csv",
+      "description": "Per-source parse and curation summary.",
+      "format": "CSV",
+      "schema": "31e30acc43f2_parse_log_schema.md"
+    },
+    {
+      "path": "31e30acc43f2_viewer.html",
+      "description": "Standalone interactive observation viewer.",
+      "format": "HTML"
+    },
+    {
+      "path": "31e30acc43f2_cell_sites/cell_site_estimates.csv",
+      "description": "Estimated LTE cell-site locations derived from the curated observations.",
+      "format": "CSV",
+      "schema": "31e30acc43f2_cell_sites/cell_site_estimates_schema.md"
+    },
+    {
+      "path": "31e30acc43f2_cell_sites/cell_site_estimates.geojson",
+      "description": "Cell-site estimates encoded as GeoJSON points.",
+      "format": "GeoJSON"
+    },
+    {
+      "path": "31e30acc43f2_cell_sites/cell_site_estimates_map.html",
+      "description": "Standalone interactive map of estimated LTE cell-site locations.",
+      "format": "HTML"
+    },
+    {
+      "path": "31e30acc43f2_cell_sites/cell_site_ta_overlap_areas.geojson",
+      "description": "TA-derived feasible cell-site areas from intersecting per-observation timing-advance disks.",
+      "format": "GeoJSON"
+    },
+    {
+      "path": "31e30acc43f2_cell_sites/cell_site_ta_overlap_map.html",
+      "description": "Standalone interactive map of TA disk intersections showing feasible cell-site areas.",
+      "format": "HTML"
+    },
+    {
+      "path": "31e30acc43f2_cell_sites/cell_site_comparison.csv",
+      "description": "Comparison between estimated LTE cell-site locations and supplied known eNodeB coordinates.",
+      "format": "CSV"
+    },
+    {
+      "path": "31e30acc43f2_road_coverage_by_class.csv",
+      "description": "Road-length coverage by OpenStreetMap highway class.",
+      "format": "CSV"
+    },
+    {
+      "path": "31e30acc43f2_road_coverage_roads.geojson",
+      "description": "OpenStreetMap road geometries with estimated drive-test coverage metrics.",
+      "format": "GeoJSON"
+    },
+    {
+      "path": "31e30acc43f2_road_coverage_uncovered_roads.geojson",
+      "description": "OpenStreetMap road segments remaining after covered spans are removed.",
+      "format": "GeoJSON"
+    },
+    {
+      "path": "31e30acc43f2_road_coverage_uncovered_roads_tertiary_and_higher.geojson",
+      "description": "Uncovered OpenStreetMap road segments for tertiary and higher highway classes.",
+      "format": "GeoJSON"
+    },
+    {
+      "path": "31e30acc43f2_road_coverage_summary.json",
+      "description": "Road coverage analysis parameters and class-level summary.",
+      "format": "JSON"
+    },
+    {
+      "path": "pass_viewer_map.png",
+      "description": "PNG snapshot of the pass observation viewer without a map background.",
+      "format": "PNG"
+    }
+  ],
+  "road_coverage": {
+    "living_street": {
+      "total_road_length_m": 2099.41,
+      "covered_road_length_m": 20.11,
+      "coverage_pct": 0.96
+    },
+    "motorway": {
+      "total_road_length_m": 35439.06,
+      "covered_road_length_m": 34935.77,
+      "coverage_pct": 98.58
+    },
+    "motorway_link": {
+      "total_road_length_m": 15774.93,
+      "covered_road_length_m": 15453.93,
+      "coverage_pct": 97.97
+    },
+    "primary": {
+      "total_road_length_m": 121132.34,
+      "covered_road_length_m": 114185.18,
+      "coverage_pct": 94.26
+    },
+    "primary_link": {
+      "total_road_length_m": 10747.96,
+      "covered_road_length_m": 9015.38,
+      "coverage_pct": 83.88
+    },
+    "residential": {
+      "total_road_length_m": 819327.09,
+      "covered_road_length_m": 93615.37,
+      "coverage_pct": 11.43
+    },
+    "secondary": {
+      "total_road_length_m": 49965.17,
+      "covered_road_length_m": 49016.39,
+      "coverage_pct": 98.1
+    },
+    "secondary_link": {
+      "total_road_length_m": 153.09,
+      "covered_road_length_m": 153.09,
+      "coverage_pct": 100.0
+    },
+    "service": {
+      "total_road_length_m": 715401.81,
+      "covered_road_length_m": 85232.34,
+      "coverage_pct": 11.91
+    },
+    "tertiary": {
+      "total_road_length_m": 200216.73,
+      "covered_road_length_m": 162276.92,
+      "coverage_pct": 81.05
+    },
+    "tertiary_link": {
+      "total_road_length_m": 867.99,
+      "covered_road_length_m": 838.8,
+      "coverage_pct": 96.64
+    },
+    "trunk": {
+      "total_road_length_m": 31403.16,
+      "covered_road_length_m": 27040.45,
+      "coverage_pct": 86.11
+    },
+    "trunk_link": {
+      "total_road_length_m": 11433.94,
+      "covered_road_length_m": 8560.79,
+      "coverage_pct": 74.87
+    },
+    "unclassified": {
+      "total_road_length_m": 108404.74,
+      "covered_road_length_m": 33950.75,
+      "coverage_pct": 31.32
+    }
+  }
+}

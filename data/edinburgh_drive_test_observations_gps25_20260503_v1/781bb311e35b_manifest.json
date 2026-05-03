@@ -85,6 +85,11 @@
       "format": "GeoJSON"
     },
     {
+      "path": "781bb311e35b_road_coverage_uncovered_roads_tertiary_and_higher.geojson",
+      "description": "Uncovered OpenStreetMap road segments for tertiary and higher highway classes.",
+      "format": "GeoJSON"
+    },
+    {
       "path": "781bb311e35b_road_coverage_summary.json",
       "description": "Road coverage analysis parameters and class-level summary.",
       "format": "JSON"

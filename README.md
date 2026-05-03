@@ -42,10 +42,10 @@ The dataset has been anonymised and reduced in scope to remove identifiers and
 sensitive attributes, while retaining sufficient structure and fidelity to
 support meaningful analysis.
 
-The current release is `edinburgh_drive_test_observations_gps25_20260427_v1`.
-It contains 52,134 curated observations from 42 source CSV files, covering 521
-observed serving-cell identifiers between 2025-11-23 and 2026-04-27. The release
-also includes 494 estimated LTE cell-site locations derived from the observations.
+The current release is `edinburgh_drive_test_observations_gps25_20260503_v2`.
+It contains 87,656 curated observations from 57 source CSV files, covering 695
+observed serving-cell identifiers between 2025-11-23 and 2026-05-03. The release
+also includes 655 estimated LTE cell-site locations derived from the observations.
 
 Coordinates are WGS 84 latitude/longitude decimal degrees (`EPSG:4326`). The
 published dataset is filtered to this bounding box:
@@ -56,6 +56,10 @@ max latitude:   56.000
 min longitude:  -3.430
 max longitude:  -3.150
 ```
+
+The published observations are filtered to GPS accuracy of 25 metres or better.
+The curation pipeline also removes overlapping pass sections and omits configured
+exclusion areas recorded in the release manifest.
 
 ## Intended Use
 
@@ -70,28 +74,45 @@ validation and augmentation.
 
 ## Published Files
 
-The release files are in `data/`:
+The release files are in
+`data/edinburgh_drive_test_observations_gps25_20260503_v2/`. File names use the
+release content prefix `31e30acc43f2`:
 
-- `data/edinburgh_drive_test_observations_gps25_20260427_v1.csv`: curated LTE
-  observation records.
-- `data/edinburgh_drive_test_observations_gps25_20260427_v1_schema.md`: schema
-  for the observation CSV.
-- `data/edinburgh_drive_test_observations_gps25_20260427_v1_parse_log.csv`:
-  per-source parse and curation summary.
-- `data/edinburgh_drive_test_observations_gps25_20260427_v1_parse_log_schema.md`:
-  schema for the parse log.
-- `data/edinburgh_drive_test_observations_gps25_20260427_v1_manifest.json`:
-  release metadata, filters, coordinate reference system, and file list.
-- `data/edinburgh_drive_test_observations_gps25_20260427_v1_viewer.html`:
-  standalone interactive observation viewer.
-- `data/edinburgh_drive_test_observations_gps25_20260427_v1_cell_sites/cell_site_estimates.csv`:
-  estimated LTE cell-site locations.
-- `data/edinburgh_drive_test_observations_gps25_20260427_v1_cell_sites/cell_site_estimates_schema.md`:
-  schema for the cell-site estimates.
-- `data/edinburgh_drive_test_observations_gps25_20260427_v1_cell_sites/cell_site_estimates.geojson`:
-  cell-site estimates as GeoJSON points.
-- `data/edinburgh_drive_test_observations_gps25_20260427_v1_cell_sites/cell_site_estimates_map.html`:
-  standalone interactive map of estimated cell-site locations.
+Previous releases are retained in `data/`. Releases can be differentiated by
+the date and version in the release directory name, and by the file prefix/stem
+used for the generated artefacts.
+
+- `31e30acc43f2.csv`: curated LTE observation records.
+- `31e30acc43f2_schema.md`: schema for the observation CSV.
+- `31e30acc43f2_parse_log.csv`: per-source parse and curation summary.
+- `31e30acc43f2_parse_log_schema.md`: schema for the parse log.
+- `31e30acc43f2_manifest.json`: release metadata, filters, coordinate reference
+  system, road coverage summary, and file list.
+- `31e30acc43f2_viewer.html`: standalone interactive observation viewer.
+- `31e30acc43f2_cell_sites/cell_site_estimates.csv`: estimated LTE cell-site
+  locations.
+- `31e30acc43f2_cell_sites/cell_site_estimates_schema.md`: schema for the
+  cell-site estimates.
+- `31e30acc43f2_cell_sites/cell_site_estimates.geojson`: cell-site estimates as
+  GeoJSON points.
+- `31e30acc43f2_cell_sites/cell_site_estimates_map.html`: standalone
+  interactive map of estimated cell-site locations.
+- `31e30acc43f2_cell_sites/cell_site_ta_overlap_areas.geojson`: timing-advance
+  feasible-area geometries for cell-site analysis.
+- `31e30acc43f2_cell_sites/cell_site_ta_overlap_map.html`: standalone
+  interactive map of timing-advance overlap areas.
+- `31e30acc43f2_cell_sites/cell_site_comparison.csv`: comparison between
+  estimated cell-site locations and supplied known eNodeB coordinates.
+- `31e30acc43f2_road_coverage_by_class.csv`: road-length coverage summary by
+  OpenStreetMap highway class.
+- `31e30acc43f2_road_coverage_roads.geojson`: OpenStreetMap road geometries
+  with estimated drive-test coverage metrics.
+- `31e30acc43f2_road_coverage_uncovered_roads.geojson`: road segments remaining
+  after covered spans are removed.
+- `31e30acc43f2_road_coverage_uncovered_roads_tertiary_and_higher.geojson`:
+  uncovered road segments for tertiary and higher highway classes.
+- `31e30acc43f2_road_coverage_summary.json`: road coverage parameters and
+  class-level summary.
 
 ## What Is In Each Observation
 
@@ -113,24 +134,57 @@ See the schema files in `data/` for column-level descriptions.
 Open the HTML files in a browser:
 
 ```text
-data/edinburgh_drive_test_observations_gps25_20260427_v1_viewer.html
-data/edinburgh_drive_test_observations_gps25_20260427_v1_cell_sites/cell_site_estimates_map.html
+data/edinburgh_drive_test_observations_gps25_20260503_v2/31e30acc43f2_viewer.html
+data/edinburgh_drive_test_observations_gps25_20260503_v2/31e30acc43f2_cell_sites/cell_site_estimates_map.html
+data/edinburgh_drive_test_observations_gps25_20260503_v2/31e30acc43f2_cell_sites/cell_site_ta_overlap_map.html
 ```
 
 If your browser blocks local resources, serve the directory locally:
 
 ```bash
-python3 -m http.server 8767
+python3 -m http.server 8767 --directory data/edinburgh_drive_test_observations_gps25_20260503_v2
 ```
 
-Then open `http://localhost:8767/data/`.
+Then open `http://localhost:8767/`.
 
 ## Notes On Cell-Site Estimates
 
 The cell-site files contain inferred locations from handset observations. They
-are not authoritative operator site coordinates. Use the quality metrics in
-`cell_site_estimates.csv`, such as observation counts and radius/residual
-statistics, when deciding whether an estimate is suitable for analysis.
+are estimates only and may be inaccurate. They are not authoritative operator
+site coordinates. Use the quality metrics in `cell_site_estimates.csv`, such as
+observation counts and radius/residual statistics, when deciding whether an
+estimate is suitable for analysis.
+
+The release also includes timing-advance overlap outputs. These show feasible
+areas implied by intersecting per-observation timing-advance disks and should be
+treated as analytical aids, not ground-truth site boundaries.
+
+Where known eNodeB coordinates are supplied to the pipeline,
+`cell_site_comparison.csv` records matches and distance errors between inferred
+locations and that reference catalogue.
+
+## Road Coverage Outputs
+
+Road coverage outputs estimate which OpenStreetMap road segments fall within
+the drive-test coverage envelope. The current release uses a 25 metre coverage
+buffer, 10 metre road sampling, 150 metre maximum observation segment length,
+and 60 second maximum time gap when constructing covered spans.
+
+The drive-test collection focuses primarily on motorway, trunk, primary,
+secondary, and tertiary roads. Approximate coverage by OpenStreetMap road class,
+including each class's `_link` roads, is:
+
+- Motorway: 98.4%.
+- Trunk: 83.1%.
+- Primary: 93.4%.
+- Secondary: 98.1%.
+- Tertiary: 81.1%.
+
+Further dataset updates should be expected until coverage exceeds 95% for each
+of these priority road classes.
+
+These files are useful for understanding geographic coverage of the released
+observations. They are not a statement of network service availability.
 
 ## Limitations
 
@@ -163,13 +217,27 @@ written permission.
 
 Please refer to the `LICENSE` file for full terms.
 
-## Attribution
+## Data Credits And Attribution
 
 Use of this dataset must include the following attribution:
 
 ```text
 Dataset provided by Melrose Networks (Melrose Labs Ltd)
 ```
+
+The curated drive-test observations and inferred LTE cell-site estimates are
+derived from Melrose Networks drive-test collection and analysis.
+
+Road-coverage outputs, where included, use road geometry from
+[OpenStreetMap](https://www.openstreetmap.org/copyright) contributors, retrieved
+through the Overpass API. OpenStreetMap data is available under the
+[Open Database Licence](https://opendatacommons.org/licenses/odbl/).
+
+The interactive HTML viewers may load third-party map tiles depending on the
+selected background layer. These include OpenStreetMap tiles, OpenStreetMap HOT
+tiles, CARTO basemaps, and OpenTopoMap tiles using OpenStreetMap and SRTM data.
+Please retain the attribution displayed in the viewers when publishing maps,
+screenshots, or derivative visualisations.
 
 ## Collaboration
 
