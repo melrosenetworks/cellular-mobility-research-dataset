@@ -42,10 +42,10 @@ The dataset has been anonymised and reduced in scope to remove identifiers and
 sensitive attributes, while retaining sufficient structure and fidelity to
 support meaningful analysis.
 
-The current release is `edinburgh_drive_test_observations_gps25_20260503_v2`.
-It contains 87,656 curated observations from 57 source CSV files, covering 695
-observed serving-cell identifiers between 2025-11-23 and 2026-05-03. The release
-also includes 655 estimated LTE cell-site locations derived from the observations.
+The current release is `edinburgh_drive_test_observations_gps25_20260504_v1`.
+It contains 94,412 curated observations from 150 source CSV files, covering 731
+observed serving-cell identifiers between 2025-11-23 and 2026-05-04. The release
+also includes 685 estimated LTE cell-site locations derived from the observations.
 
 Coordinates are WGS 84 latitude/longitude decimal degrees (`EPSG:4326`). The
 published dataset is filtered to this bounding box:
@@ -75,43 +75,43 @@ validation and augmentation.
 ## Published Files
 
 The release files are in
-`data/edinburgh_drive_test_observations_gps25_20260503_v2/`. File names use the
-release content prefix `31e30acc43f2`:
+`data/edinburgh_drive_test_observations_gps25_20260504_v1/`. File names use the
+release content prefix `232b88874723`:
 
 Previous releases are retained in `data/`. Releases can be differentiated by
 the date and version in the release directory name, and by the file prefix/stem
 used for the generated artefacts.
 
-- `31e30acc43f2.csv`: curated LTE observation records.
-- `31e30acc43f2_schema.md`: schema for the observation CSV.
-- `31e30acc43f2_parse_log.csv`: per-source parse and curation summary.
-- `31e30acc43f2_parse_log_schema.md`: schema for the parse log.
-- `31e30acc43f2_manifest.json`: release metadata, filters, coordinate reference
+- `232b88874723.csv`: curated LTE observation records.
+- `232b88874723_schema.md`: schema for the observation CSV.
+- `232b88874723_parse_log.csv`: per-source parse and curation summary.
+- `232b88874723_parse_log_schema.md`: schema for the parse log.
+- `232b88874723_manifest.json`: release metadata, filters, coordinate reference
   system, road coverage summary, and file list.
-- `31e30acc43f2_viewer.html`: standalone interactive observation viewer.
-- `31e30acc43f2_cell_sites/cell_site_estimates.csv`: estimated LTE cell-site
+- `232b88874723_viewer.html`: standalone interactive observation viewer.
+- `232b88874723_cell_sites/cell_site_estimates.csv`: estimated LTE cell-site
   locations.
-- `31e30acc43f2_cell_sites/cell_site_estimates_schema.md`: schema for the
+- `232b88874723_cell_sites/cell_site_estimates_schema.md`: schema for the
   cell-site estimates.
-- `31e30acc43f2_cell_sites/cell_site_estimates.geojson`: cell-site estimates as
+- `232b88874723_cell_sites/cell_site_estimates.geojson`: cell-site estimates as
   GeoJSON points.
-- `31e30acc43f2_cell_sites/cell_site_estimates_map.html`: standalone
+- `232b88874723_cell_sites/cell_site_estimates_map.html`: standalone
   interactive map of estimated cell-site locations.
-- `31e30acc43f2_cell_sites/cell_site_ta_overlap_areas.geojson`: timing-advance
+- `232b88874723_cell_sites/cell_site_ta_overlap_areas.geojson`: timing-advance
   feasible-area geometries for cell-site analysis.
-- `31e30acc43f2_cell_sites/cell_site_ta_overlap_map.html`: standalone
+- `232b88874723_cell_sites/cell_site_ta_overlap_map.html`: standalone
   interactive map of timing-advance overlap areas.
-- `31e30acc43f2_cell_sites/cell_site_comparison.csv`: comparison between
+- `232b88874723_cell_sites/cell_site_comparison.csv`: comparison between
   estimated cell-site locations and supplied known eNodeB coordinates.
-- `31e30acc43f2_road_coverage_by_class.csv`: road-length coverage summary by
+- `232b88874723_road_coverage_by_class.csv`: road-length coverage summary by
   OpenStreetMap highway class.
-- `31e30acc43f2_road_coverage_roads.geojson`: OpenStreetMap road geometries
+- `232b88874723_road_coverage_roads.geojson`: OpenStreetMap road geometries
   with estimated drive-test coverage metrics.
-- `31e30acc43f2_road_coverage_uncovered_roads.geojson`: road segments remaining
+- `232b88874723_road_coverage_uncovered_roads.geojson`: road segments remaining
   after covered spans are removed.
-- `31e30acc43f2_road_coverage_uncovered_roads_tertiary_and_higher.geojson`:
+- `232b88874723_road_coverage_uncovered_roads_tertiary_and_higher.geojson`:
   uncovered road segments for tertiary and higher highway classes.
-- `31e30acc43f2_road_coverage_summary.json`: road coverage parameters and
+- `232b88874723_road_coverage_summary.json`: road coverage parameters and
   class-level summary.
 
 ## What Is In Each Observation
@@ -134,15 +134,15 @@ See the schema files in `data/` for column-level descriptions.
 Open the HTML files in a browser:
 
 ```text
-data/edinburgh_drive_test_observations_gps25_20260503_v2/31e30acc43f2_viewer.html
-data/edinburgh_drive_test_observations_gps25_20260503_v2/31e30acc43f2_cell_sites/cell_site_estimates_map.html
-data/edinburgh_drive_test_observations_gps25_20260503_v2/31e30acc43f2_cell_sites/cell_site_ta_overlap_map.html
+data/edinburgh_drive_test_observations_gps25_20260504_v1/232b88874723_viewer.html
+data/edinburgh_drive_test_observations_gps25_20260504_v1/232b88874723_cell_sites/cell_site_estimates_map.html
+data/edinburgh_drive_test_observations_gps25_20260504_v1/232b88874723_cell_sites/cell_site_ta_overlap_map.html
 ```
 
 If your browser blocks local resources, serve the directory locally:
 
 ```bash
-python3 -m http.server 8767 --directory data/edinburgh_drive_test_observations_gps25_20260503_v2
+python3 -m http.server 8767 --directory data/edinburgh_drive_test_observations_gps25_20260504_v1
 ```
 
 Then open `http://localhost:8767/`.
@@ -174,14 +174,14 @@ The drive-test collection focuses primarily on motorway, trunk, primary,
 secondary, and tertiary roads. Approximate coverage by OpenStreetMap road class,
 including each class's `_link` roads, is:
 
-- Motorway: 98.4%.
-- Trunk: 83.1%.
-- Primary: 93.4%.
+- Motorway: 98.6%.
+- Trunk: 83.0%.
+- Primary: 96.2%.
 - Secondary: 98.1%.
-- Tertiary: 81.1%.
+- Tertiary: 89.2%.
 
-Further dataset updates should be expected until coverage exceeds 95% for each
-of these priority road classes.
+Further dataset updates should be expected until coverage for trunk and
+tertiary roads exceeds 95% across these priority road classes.
 
 These files are useful for understanding geographic coverage of the released
 observations. They are not a statement of network service availability.
