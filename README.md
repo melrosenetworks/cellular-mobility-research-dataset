@@ -89,6 +89,8 @@ used for the generated artefacts.
 - `232b88874723_manifest.json`: release metadata, filters, coordinate reference
   system, road coverage summary, and file list.
 - `232b88874723_viewer.html`: standalone interactive observation viewer.
+- `232b88874723_ecgi_grid.html`: standalone interactive map of the dataset
+  bounding box split into 500 metre squares coloured by distinct ECGI count.
 - `232b88874723_cell_sites/cell_site_estimates.csv`: estimated LTE cell-site
   locations.
 - `232b88874723_cell_sites/cell_site_estimates_schema.md`: schema for the
@@ -129,12 +131,45 @@ location and derived movement context. The main CSV includes:
 
 See the schema files in `data/` for column-level descriptions.
 
+## Timing Advance Quality Check
+
+Use `tools/check_ta_quality.py` to compare reported LTE timing advance values with the
+distance between each drive-test observation and the known eNodeB location in
+`data/cells_23430.csv`. The script derives eNodeB ID from the observation `cid`
+using `cid >> 8`, then checks whether the site distance falls inside the
+reported TA range, expanded by `gps_accuracy_m` or `accuracy_m` when available.
+Observation column matching is flexible: headers are matched case-insensitively
+after trimming whitespace and ignoring punctuation/underscores, so raw CDR
+headers such as `CID` and `TA` are accepted.
+Rows with blank `CID` values and Android/Java `Integer.MAX_VALUE` TA sentinels
+are ignored by the range check.
+
+```bash
+python3 tools/check_ta_quality.py \
+  data/edinburgh_drive_test_observations_gps25_20260504_v1/232b88874723.csv \
+  data/cells_23430.csv \
+  --output ta_quality_failures.csv \
+  --summary-output ta_quality_summary.json \
+  --list-unknown-enodebs
+```
+
+The failure CSV includes the matched known cell location, distance to the site,
+the reported TA distance range, and whether the reported TA appears too high or
+too low for the known site distance. Add `--list-unknown-enodebs` to print a
+summary of derived eNodeB IDs that are not present in the known-cell catalogue;
+use `--unknown-enodeb-limit 0` to list all of them.
+Use `--list-rows` to print selected skipped-row categories:
+`invalid-locations`, `empty-cids`, `missing-ta`, `unavailable-ta`,
+`unmatched-enodeb`, or `all`. Use `--list-row-limit 0` to print all matching
+rows for each selected category.
+
 ## Viewing The Data
 
 Open the HTML files in a browser:
 
 ```text
 data/edinburgh_drive_test_observations_gps25_20260504_v1/232b88874723_viewer.html
+data/edinburgh_drive_test_observations_gps25_20260504_v1/232b88874723_ecgi_grid.html
 data/edinburgh_drive_test_observations_gps25_20260504_v1/232b88874723_cell_sites/cell_site_estimates_map.html
 data/edinburgh_drive_test_observations_gps25_20260504_v1/232b88874723_cell_sites/cell_site_ta_overlap_map.html
 ```

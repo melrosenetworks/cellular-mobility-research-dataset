@@ -39,6 +39,11 @@
       "format": "HTML"
     },
     {
+      "path": "232b88874723_ecgi_grid.html",
+      "description": "Standalone interactive map of the dataset bounding box split into squares coloured by distinct ECGI count.",
+      "format": "HTML"
+    },
+    {
       "path": "232b88874723_cell_sites/cell_site_estimates.csv",
       "description": "Estimated LTE cell-site locations derived from the curated observations.",
       "format": "CSV",
@@ -127,7 +132,7 @@
       "coverage_pct": 83.88
     },
     "residential": {
-      "total_road_length_m": 819327.09,
+      "total_road_length_m": 819327.2,
       "covered_road_length_m": 97697.07,
       "coverage_pct": 11.92
     },
